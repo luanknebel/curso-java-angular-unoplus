@@ -5,5 +5,7 @@ import com.unochapeco.example.model.Usuario;
 public interface TokenService {
 
 	public String gerarToken(Usuario usuario);
+
+	public String getSubject(String token);
 	
 }

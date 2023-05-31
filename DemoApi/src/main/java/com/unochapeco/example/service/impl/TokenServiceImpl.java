@@ -25,4 +25,13 @@ public class TokenServiceImpl implements TokenService{
 		
 	}
 
+	@Override
+	public String getSubject(String token) {
+
+		return JWT.require(Algorithm.HMAC256("Secret-key"))
+				.withIssuer("Application")
+				.build().verify(token).getSubject();
+		
+	}
+
 }
