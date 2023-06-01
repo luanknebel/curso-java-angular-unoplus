@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,6 +32,7 @@ public class Usuario extends AbstractModel implements UserDetails{
 	@SequenceGenerator(name = "sequence_usuario", sequenceName = "sequence_usuario", allocationSize = 1)
 	private Long idUsuario;
 
+	@Column(unique = true)
 	private String login;
 	private String password;
 	@Temporal(TemporalType.TIMESTAMP)

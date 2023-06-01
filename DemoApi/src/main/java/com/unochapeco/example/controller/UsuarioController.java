@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.unochapeco.example.dto.LoginDTO;
 import com.unochapeco.example.dto.UsuarioDTO;
+import com.unochapeco.example.exception.BusinessException;
 import com.unochapeco.example.model.Usuario;
 import com.unochapeco.example.service.TokenService;
 import com.unochapeco.example.service.UsuarioService;
@@ -39,11 +40,14 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO>{
 	
 	@PostMapping("/login")
 	public String login(@RequestBody LoginDTO login) {
-		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(login.getLogin(), login.getPassword());
-		
-		Authentication authenticate = authenticationManager.authenticate(authenticationToken);
-		Usuario usuario = (Usuario)authenticate.getPrincipal();
-		return tokenService.gerarToken(usuario);
+		try {
+			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(login.getLogin(), login.getPassword());
+			Authentication authenticate = authenticationManager.authenticate(authenticationToken);
+			Usuario usuario = (Usuario)authenticate.getPrincipal();
+			return tokenService.gerarToken(usuario);
+		} catch (Exception e) {
+			throw new BusinessException("Ocorreu um erro ao realizar login", e);
+		}
 	}
 	
 	@GetMapping
