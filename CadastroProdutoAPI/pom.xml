@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.unochapeco.example</groupId>
-	<artifactId>DemoApi</artifactId>
+	<artifactId>CadastroProdutoAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>DemoApi</name>
-	<description>Demo project for Spring Boot</description>
+	<name>CadastroProdutoAPI</name>
+	<description>CadastroProdutoAPI Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
