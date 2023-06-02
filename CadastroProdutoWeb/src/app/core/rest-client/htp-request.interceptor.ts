@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map } from 'rxjs/operators'
 import { Observable, throwError } from 'rxjs';
 import { NotifierHandlerService } from '../services/notifier-handler.service';
@@ -16,11 +16,11 @@ export class HttpRequestInterceptor implements HttpInterceptor {
             catchError((error: HttpErrorResponse) => {
                 let message = "";
                 if (error.error != null) {
-                    message = error.error.mensagem ? error.error.mensagem : error.error;
+                    message = error.error.message ? error.error.message : error.error;
                 } else {
                     message = error.message;
                 }
-                if (error.status == 400 || error.status == 500) {
+                if (error.status == 400 || error.status == 500 || error.status == 403) {
                     this.notifierService.notifyError(message);
                 }
                 return throwError(() => error);
