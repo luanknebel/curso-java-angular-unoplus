@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.unochapeco.example.dto.LoginDTO;
+import com.unochapeco.example.dto.TokenDTO;
 import com.unochapeco.example.dto.UsuarioDTO;
 import com.unochapeco.example.exception.BusinessException;
 import com.unochapeco.example.model.Usuario;
@@ -39,14 +40,15 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO>{
 	private TokenService tokenService;
 	
 	@PostMapping("/login")
-	public String login(@RequestBody LoginDTO login) {
+	public TokenDTO login(@RequestBody LoginDTO login) {
 		try {
 			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(login.getLogin(), login.getPassword());
 			Authentication authenticate = authenticationManager.authenticate(authenticationToken);
 			Usuario usuario = (Usuario)authenticate.getPrincipal();
-			return tokenService.gerarToken(usuario);
+			String token = tokenService.gerarToken(usuario);
+			return new TokenDTO(token);
 		} catch (Exception e) {
-			throw new BusinessException("Ocorreu um erro ao realizar login", e);
+			throw new BusinessException("Login ou senha incorreto!", e);
 		}
 	}
 	

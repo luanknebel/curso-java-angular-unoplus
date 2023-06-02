@@ -1,0 +1,13 @@
+#box{
+    width: 300px;
+    height: 300px;
+    border: solid thick #dddddd;
+    border-radius: 2%;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#form-update-password{
+  text-align: center;
+}

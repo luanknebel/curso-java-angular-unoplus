@@ -10,7 +10,6 @@ import java.util.Date;
 public class UsuarioDTO extends AbstractDTO{
 
 	private Long idUsuario;
-
 	private String login;
 	private String password;
 	private Date data;

@@ -4,6 +4,8 @@ npm install -g @angular/cli@14.0.0
 #Instalar bibliotecas
 npm install angular-notifier --save
 npm install @angular/material@13 --save
+npm install material-icons --save
+
 
 
 #Criar serviço rest
@@ -13,7 +15,8 @@ ng generate interceptor core/rest-client/htp-request
 #Criar serviço de notificação
 ng generate service core/service/notifier-handler
 
-#Criar componente de index
-ng generate component index
+#Criar componentes
+ng generate component login
+ng generate component cadastro/cadastro-usuario
 
 
