@@ -1,7 +1,19 @@
 #instalar versão do angular 14
 npm install -g @angular/cli@14.0.0
 
-#Instalar biblioteca de notificações
+#Instalar bibliotecas
 npm install angular-notifier --save
+npm install @angular/material@13 --save
+
+
+#Criar serviço rest
+ng generate service core/rest-client/rest-client
+ng generate interceptor core/rest-client/htp-request
+
+#Criar serviço de notificação
+ng generate service core/service/notifier-handler
+
+#Criar componente de index
+ng generate component index
 
 
