@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoginDTO } from '../core/model/login.dto';
 import { RestClientService } from '../core/rest-client/rest-client.service';
 import { NotifierHandlerService } from '../core/services/notifier-handler.service';
-import { MessageDTO } from '../core/model/message.dto';
-import { catchError } from 'rxjs';
 import { TokenDTO } from '../core/model/token.dto';
 
 @Component({
