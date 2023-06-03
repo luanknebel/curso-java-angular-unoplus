@@ -15,11 +15,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import { CadastroProdutoComponent } from './cadastro/cadastro-produto/cadastro-produto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CadastroProdutoComponent
   ],
   imports: [
     BrowserModule,
