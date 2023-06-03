@@ -19,11 +19,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 import { CadastroProdutoComponent } from './cadastro/cadastro-produto/cadastro-produto.component';
 
 import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 import { CommonModule } from '@angular/common';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -36,6 +43,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     AppRoutingModule,
     HttpClientModule,
     CurrencyMaskModule,
+    CommonModule,
     FormsModule,
     MatInputModule,
     MatMenuModule,
@@ -44,12 +52,15 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
+    MatTableModule,
     BrowserAnimationsModule,
     NotifierModule.withConfig(notifierDefaultOptions)
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }, 
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
   bootstrap: [AppComponent]
 })

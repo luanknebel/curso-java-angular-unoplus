@@ -2,17 +2,21 @@
 npm install -g @angular/cli@14.0.0
 
 #Instalar bibliotecas
-npm install angular-notifier --save
-npm install @angular/material@13 --save
-npm install material-icons --save
-npm install ng2-currency-mask --save
+npm install --save angular-notifier
+npm install --save @angular/material@13
+npm install --save material-icons --save
+npm install --save ng2-currency-mask
+npm install --save @auth0/angular-jwt
 
 #Criar serviço rest
 ng generate service core/rest-client/rest-client
 ng generate interceptor core/rest-client/htp-request
 
-#Criar serviço de notificação
-ng generate service core/service/notifier-handler
+#Criar serviços
+ng generate service core/services/notifier-handler
+ng generate service core/services/authentication
+ng generate service core/services/token-jwt
+ng generate service core/security/AuthGuard
 
 #Criar componentes
 ng generate component login

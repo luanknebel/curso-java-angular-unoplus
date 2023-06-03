@@ -7,3 +7,11 @@
 .component-width {
     width: 60%;
 }
+
+.table-div {
+    border: 2px;;
+}
+
+table {
+    width: 80%;
+}
