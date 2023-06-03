@@ -28,7 +28,7 @@ public class SecurityFilterChainConfigure {
 				      corsConfig.setAllowedMethods(List.of("GET","POST", "PUT", "DELETE", "OPTIONS"));
 				      corsConfig.setAllowedHeaders(List.of("*"));
 				      return corsConfig;
-				    }))
+				 }))
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests.requestMatchers(HttpMethod.POST, "usuario/login", "usuario").permitAll())
 				.authorizeHttpRequests(authorizeHttpRequests -> authorizeHttpRequests.anyRequest().authenticated())
