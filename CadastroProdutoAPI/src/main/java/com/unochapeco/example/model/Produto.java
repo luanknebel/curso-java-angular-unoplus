@@ -22,7 +22,7 @@ public class Produto extends AbstractModel {
 	private String descricao;
 
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataCadastro;
+	private Date dataFabricacao;
 
 	private BigDecimal valor;
 
@@ -42,12 +42,12 @@ public class Produto extends AbstractModel {
 		this.descricao = descricao;
 	}
 
-	public Date getDataCadastro() {
-		return dataCadastro;
+	public Date getDataFabricacao() {
+		return dataFabricacao;
 	}
 
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataFabricacao(Date dataFabricacao) {
+		this.dataFabricacao = dataFabricacao;
 	}
 
 	public BigDecimal getValor() {

@@ -15,7 +15,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { CadastroProdutoComponent } from './cadastro/cadastro-produto/cadastro-produto.component';
+
+import { LOCALE_ID } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -27,15 +35,21 @@ import { CadastroProdutoComponent } from './cadastro/cadastro-produto/cadastro-p
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CurrencyMaskModule,
     FormsModule,
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     NotifierModule.withConfig(notifierDefaultOptions)
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }, 
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
 })

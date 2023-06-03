@@ -5,6 +5,7 @@ npm install -g @angular/cli@14.0.0
 npm install angular-notifier --save
 npm install @angular/material@13 --save
 npm install material-icons --save
+npm install ng2-currency-mask --save
 
 #Criar serviço rest
 ng generate service core/rest-client/rest-client

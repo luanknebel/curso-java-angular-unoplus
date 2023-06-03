@@ -1,0 +1,9 @@
+.form-layout {
+    min-width: 100px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.component-width {
+    width: 60%;
+}

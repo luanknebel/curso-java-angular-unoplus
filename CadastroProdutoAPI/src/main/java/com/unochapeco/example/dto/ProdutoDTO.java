@@ -9,7 +9,7 @@ public class ProdutoDTO extends AbstractDTO {
 
 	private String descricao;
 
-	private Date dataCadastro;
+	private Date dataFabricacao;
 
 	private BigDecimal valor;
 
@@ -29,12 +29,12 @@ public class ProdutoDTO extends AbstractDTO {
 		this.descricao = descricao;
 	}
 
-	public Date getDataCadastro() {
-		return dataCadastro;
+	public Date getDataFabricacao() {
+		return dataFabricacao;
 	}
 
-	public void setDataCadastro(Date dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	public void setDataFabricacao(Date dataFabricacao) {
+		this.dataFabricacao = dataFabricacao;
 	}
 
 	public BigDecimal getValor() {
