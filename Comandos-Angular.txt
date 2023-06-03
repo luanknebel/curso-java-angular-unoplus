@@ -17,6 +17,7 @@ ng generate service core/services/notifier-handler
 ng generate service core/services/authentication
 ng generate service core/services/token-jwt
 ng generate service core/security/AuthGuard
+ng generate service core/services/cadastro-produto
 
 #Criar componentes
 ng generate component login

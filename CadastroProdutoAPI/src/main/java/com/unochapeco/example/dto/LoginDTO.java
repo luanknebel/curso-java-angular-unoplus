@@ -1,8 +1,12 @@
 package com.unochapeco.example.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class LoginDTO {
 
+	@NotBlank(message = "Login é obrigatorio")
 	private String login;
+	@NotBlank(message = "Senha é obrigatorio")
 	private String password;
 
 	public String getLogin() {

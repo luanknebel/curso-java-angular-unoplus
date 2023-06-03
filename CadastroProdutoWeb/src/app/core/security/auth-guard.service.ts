@@ -20,6 +20,7 @@ export class AuthGuardService implements CanActivate{
 
     if (!this.tokenJwtService.isAuthenticated()) {
       this.router.navigate(['/']);
+      this.tokenJwtService.removeToken();
       this.notifierService.notifyWarning("Usuario não antenticado para acessar este recurso");
       return loggedInFalse.asObservable();
     }

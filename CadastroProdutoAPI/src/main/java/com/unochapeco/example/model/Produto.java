@@ -1,15 +1,14 @@
 package com.unochapeco.example.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 public class Produto extends AbstractModel {
@@ -21,8 +20,7 @@ public class Produto extends AbstractModel {
 
 	private String descricao;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataFabricacao;
+	private LocalDateTime dataFabricacao;
 
 	private BigDecimal valor;
 
@@ -42,11 +40,11 @@ public class Produto extends AbstractModel {
 		this.descricao = descricao;
 	}
 
-	public Date getDataFabricacao() {
+	public LocalDateTime getDataFabricacao() {
 		return dataFabricacao;
 	}
 
-	public void setDataFabricacao(Date dataFabricacao) {
+	public void setDataFabricacao(LocalDateTime dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
 	}
 

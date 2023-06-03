@@ -1,6 +1,6 @@
 export class ProdutoDTO{
     idProduto!: number;
     descricao!: string;
-    dataCadastro!: Date | null;
+    dataFabricacao!: Date | null;
     valor!: number;
 }

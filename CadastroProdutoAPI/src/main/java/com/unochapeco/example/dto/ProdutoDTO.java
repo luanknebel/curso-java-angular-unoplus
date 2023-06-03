@@ -1,16 +1,23 @@
 package com.unochapeco.example.dto;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class ProdutoDTO extends AbstractDTO {
 
+	
 	private Long idProduto;
 
+	@NotBlank(message = "Descricao é obrigatoria")
 	private String descricao;
 
-	private Date dataFabricacao;
+	@NotNull(message = "Data de fabricacao é obrigatória")
+	private LocalDateTime dataFabricacao;
 
+	@NotNull(message = "Valor é obrigatório")
 	private BigDecimal valor;
 
 	public Long getIdProduto() {
@@ -29,11 +36,11 @@ public class ProdutoDTO extends AbstractDTO {
 		this.descricao = descricao;
 	}
 
-	public Date getDataFabricacao() {
+	public LocalDateTime getDataFabricacao() {
 		return dataFabricacao;
 	}
 
-	public void setDataFabricacao(Date dataFabricacao) {
+	public void setDataFabricacao(LocalDateTime dataFabricacao) {
 		this.dataFabricacao = dataFabricacao;
 	}
 

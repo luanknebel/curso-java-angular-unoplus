@@ -19,6 +19,8 @@ import com.unochapeco.example.dto.AbstractDTO;
 import com.unochapeco.example.model.AbstractModel;
 import com.unochapeco.example.service.CRUDService;
 
+import jakarta.validation.Valid;
+
 public abstract class AbstractController<E extends AbstractModel, DTO extends AbstractDTO> {
 
 	@Autowired
@@ -45,7 +47,7 @@ public abstract class AbstractController<E extends AbstractModel, DTO extends Ab
 	}
 
 	@PostMapping
-	public ResponseEntity<DTO> create(@RequestBody DTO dto) {
+	public ResponseEntity<DTO> create(@Valid @RequestBody DTO dto) {
 		
 		E model = convertToEntity(dto);
 		getService().save(model);
@@ -54,7 +56,7 @@ public abstract class AbstractController<E extends AbstractModel, DTO extends Ab
 	}
 
 	@PutMapping
-	public ResponseEntity<DTO> update(@RequestBody DTO dto) {
+	public ResponseEntity<DTO> update(@Valid @RequestBody DTO dto) {
 		
 		E model = convertToEntity(dto);
 		getService().save(model);

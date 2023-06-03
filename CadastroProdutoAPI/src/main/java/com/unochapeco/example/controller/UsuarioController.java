@@ -18,6 +18,8 @@ import com.unochapeco.example.service.CRUDService;
 import com.unochapeco.example.service.TokenService;
 import com.unochapeco.example.service.UsuarioService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("usuario")
 public class UsuarioController extends AbstractController<Usuario, UsuarioDTO>{
@@ -32,7 +34,7 @@ public class UsuarioController extends AbstractController<Usuario, UsuarioDTO>{
 	private AuthenticationManager authenticationManager;
 	
 	@PostMapping("/login")
-	public TokenDTO login(@RequestBody LoginDTO login) {
+	public TokenDTO login(@Valid @RequestBody LoginDTO login) {
 		try {
 			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(login.getLogin(), login.getPassword());
 			Authentication authenticate = authenticationManager.authenticate(authenticationToken);
