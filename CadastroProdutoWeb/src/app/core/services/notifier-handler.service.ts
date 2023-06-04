@@ -17,24 +17,24 @@ export class NotifierHandlerService {
     this.notifierService = notifierService;
   }
 
-  notifySucess(message : any){
-    this.notifierService.notify(this.SUCESS, String(message));
+  notifySucess(message : string){
+    this.notifierService.notify(this.SUCESS, message);
   }
 
-  notifyWarning(message : any){
-    this.notifierService.notify(this.WARNING, String(message));
+  notifyWarning(message : string){
+    this.notifierService.notify(this.WARNING, message);
   }
 
-  notifyError(message : any){
-    this.notifierService.notify(this.ERROR, String(message));
+  notifyError(message : string){
+    this.notifierService.notify(this.ERROR, message);
   }
 
-  notifyInfo(message : any){
-    this.notifierService.notify(this.INFO, String(message));
+  notifyInfo(message : string){
+    this.notifierService.notify(this.INFO, message);
   }
 
-  notify(message : any){
-    this.notifierService.notify(this.DEFAULT, String(message));
+  notify(message : string){
+    this.notifierService.notify(this.DEFAULT, message);
   }
   
 }

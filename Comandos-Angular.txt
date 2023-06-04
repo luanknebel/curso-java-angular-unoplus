@@ -4,7 +4,7 @@ npm install -g @angular/cli@14.0.0
 #Instalar bibliotecas
 npm install --save angular-notifier
 npm install --save @angular/material@13
-npm install --save material-icons --save
+npm install --save material-icons
 npm install --save ng2-currency-mask
 npm install --save @auth0/angular-jwt
 

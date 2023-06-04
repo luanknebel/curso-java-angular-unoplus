@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ProdutoDTO } from 'src/app/core/model/produto.dto';
 import { CadastroProdutoService } from 'src/app/core/services/cadastro-produto.service';

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginDTO } from '../core/model/login.dto';
-import { RestClientService } from '../core/rest-client/rest-client.service';
-import { NotifierHandlerService } from '../core/services/notifier-handler.service';
-import { TokenDTO } from '../core/model/token.dto';
 import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
