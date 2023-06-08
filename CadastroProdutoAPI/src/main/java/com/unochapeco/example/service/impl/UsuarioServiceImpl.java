@@ -39,16 +39,20 @@ public class UsuarioServiceImpl extends CRUDServiceImpl<Usuario> implements Usua
 
 	@Override
 	public Usuario update(Usuario model) {
-		Usuario usuarioBanco = findById(model.getId()).orElseThrow(() -> new BusinessException("Usuario nao encontrado para atualizacao"));
-
-		if (isSenhaAlterada(model, usuarioBanco)) {
+		if (isSenhaAlterada(model)) {
 			encodePassword(model);
 		}
 		return super.update(model);
 	}
 
-	private boolean isSenhaAlterada(Usuario usuario, Usuario usuarioBanco) {
-		return Objects.nonNull(usuario.getPassword()) && !Objects.equals(usuario.getPassword(), usuarioBanco.getPassword());
+	private boolean isSenhaAlterada(Usuario usuario) {
+		
+		Usuario usuarioBanco = findById(usuario.getId()).orElseThrow(() -> new BusinessException("Usuario nao encontrado para atualizacao"));
+		
+		if(Objects.nonNull(usuario.getPassword())) {
+			return !passwordEncoder.matches(usuario.getPassword(), usuarioBanco.getPassword());
+		}
+		return false;
 	}
 
 	private void encodePassword(Usuario usuario) {
@@ -56,3 +60,4 @@ public class UsuarioServiceImpl extends CRUDServiceImpl<Usuario> implements Usua
 	}
 
 }
+
