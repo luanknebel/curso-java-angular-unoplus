@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.unochapeco.example.exception.BusinessException;
 import com.unochapeco.example.model.Usuario;
 import com.unochapeco.example.repository.UsuarioRepository;
 import com.unochapeco.example.service.UsuarioService;
@@ -23,7 +24,7 @@ public class UsuarioServiceImpl extends CRUDServiceImpl<Usuario> implements Usua
 	private UsuarioRepository usuarioRepository;
 
 	@Autowired
-	private PasswordEncoder PasswordEncoder;
+	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public JpaRepository<Usuario, Long> getRepository() {
@@ -38,7 +39,7 @@ public class UsuarioServiceImpl extends CRUDServiceImpl<Usuario> implements Usua
 
 	@Override
 	public Usuario update(Usuario model) {
-		Usuario usuarioBanco = findById(model.getId()).orElseThrow(() -> new RuntimeException("Usuario nao encontrado para atualizacao"));
+		Usuario usuarioBanco = findById(model.getId()).orElseThrow(() -> new BusinessException("Usuario nao encontrado para atualizacao"));
 
 		if (isSenhaAlterada(model, usuarioBanco)) {
 			encodePassword(model);
@@ -51,7 +52,7 @@ public class UsuarioServiceImpl extends CRUDServiceImpl<Usuario> implements Usua
 	}
 
 	private void encodePassword(Usuario usuario) {
-		usuario.setPassword(PasswordEncoder.encode(usuario.getPassword()));
+		usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 	}
 
 }
