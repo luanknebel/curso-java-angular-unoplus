@@ -1,6 +1,8 @@
 #instalar versão do angular 14
 npm install -g @angular/cli@14.0.0
 
+
+
 #Instalar bibliotecas
 npm install --save angular-notifier
 npm install --save @angular/material@13
