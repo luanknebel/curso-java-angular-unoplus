@@ -1,7 +1,7 @@
 package com.unochapeco.example.model;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -14,8 +14,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 /**
  * 
@@ -35,8 +33,7 @@ public class Usuario extends AbstractModel implements UserDetails{
 	@Column(unique = true)
 	private String login;
 	private String password;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date data;
+	private LocalDateTime data;
 
 	@Override
 	public Long getId() {
@@ -68,11 +65,11 @@ public class Usuario extends AbstractModel implements UserDetails{
 		this.password = password;
 	}
 
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
 

@@ -1,6 +1,6 @@
 package com.unochapeco.example.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 
@@ -11,7 +11,7 @@ public class UsuarioDTO extends AbstractDTO{
 
 	private Long idUsuario;
 	private String login;
-	private Date data;
+	private LocalDateTime data;
 	
 	@Override
 	public Long getId() {
@@ -34,13 +34,12 @@ public class UsuarioDTO extends AbstractDTO{
 		this.login = login;
 	}
 
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
-
 	
 }
