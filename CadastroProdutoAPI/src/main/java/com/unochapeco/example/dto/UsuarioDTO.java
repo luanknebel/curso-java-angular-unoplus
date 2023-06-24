@@ -11,6 +11,7 @@ public class UsuarioDTO extends AbstractDTO{
 
 	private Long idUsuario;
 	private String login;
+	private String password;
 	private LocalDateTime data;
 	
 	@Override
@@ -40,6 +41,14 @@ public class UsuarioDTO extends AbstractDTO{
 
 	public void setData(LocalDateTime data) {
 		this.data = data;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 }

@@ -59,7 +59,7 @@ public abstract class AbstractController<E extends AbstractModel, DTO extends Ab
 	public ResponseEntity<DTO> update(@Valid @RequestBody DTO dto) {
 		
 		E model = convertToEntity(dto);
-		getService().save(model);
+		getService().update(model);
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
 	}
 
